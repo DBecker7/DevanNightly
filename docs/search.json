@@ -21,11 +21,11 @@
     "text": "Education\nPh.D. Statistics, Western University\nM.Sc. Statistics (collaborative with biostatistics), Western University\nB.Sc. Honours Mathematics, Wilfrid Laurier University"
   },
   {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
+    "objectID": "about.html#research-experience",
+    "href": "about.html#research-experience",
     "title": "About",
-    "section": "Experience",
-    "text": "Experience\nAssistant Professor, Wilfrid Laurier University\nPresidential Data Fellow, Univerisity of Western Ontario"
+    "section": "Research Experience",
+    "text": "Research Experience\nAssistant Professor, Wilfrid Laurier University\nPresidential Data Fellow, Univerisity of Western Ontario"
   },
   {
     "objectID": "posts/bakeoff_technical/index.html",
@@ -38,8 +38,8 @@
     "objectID": "posts/bakeoff_technical/index.html#top-half-of-the-technical",
     "href": "posts/bakeoff_technical/index.html#top-half-of-the-technical",
     "title": "Great British Bakeoff: The Technical",
-    "section": "Top half of the Technical",
-    "text": "Top half of the Technical\n\nsuppressPackageStartupMessages({\n    library(dplyr)\n    library(ggplot2)\n})\ntheme_set(theme_bw())\n\nbo &lt;- read.csv(\"GreatBritishBakeOff.csv\")\n\nbo &lt;- bo |&gt;\n    filter(Competed == 1, !is.na(Technical.Rank)) |&gt;\n    group_by(Season, Week.Number) |&gt;\n    mutate(\n        pos_perc = Technical.Rank / max(Technical.Rank)\n    ) |&gt;\n    ungroup()\n\ntable(bo$Star.Baker, bo$pos_perc &lt;= 0.5)\n\n   \n    FALSE TRUE\n  0   386  283\n  1    24   74\n\nggplot(bo) +\n    aes(x = pos_perc &lt;= 0.5, fill = factor(Star.Baker == 1)) +\n    geom_bar(position = \"fill\", colour = 1) +\n    labs(\n        x = \"In Top 50%?\",\n        y = \"Proportion\",\n        fill = \"Star baker?\"\n    ) +\n    coord_flip()\n\n\n\n\n\n\n\n\nYes, it does seem like being in the top 50% makes you more likely to win star baker, but not by a lot."
+    "section": "Top Half of the Technical",
+    "text": "Top Half of the Technical\n\nsuppressPackageStartupMessages({\n    library(dplyr)\n    library(ggplot2)\n})\ntheme_set(theme_bw())\n\nbo &lt;- read.csv(\"GreatBritishBakeOff.csv\")\n\nbo &lt;- bo |&gt;\n    filter(Competed == 1, !is.na(Technical.Rank)) |&gt;\n    group_by(Season, Week.Number) |&gt;\n    mutate(\n        pos_perc = Technical.Rank / max(Technical.Rank)\n    ) |&gt;\n    ungroup()\n\nggplot(bo) +\n    aes(x = pos_perc &lt;= 0.5, fill = factor(Star.Baker == 1)) +\n    geom_bar(position = \"fill\", colour = 1) +\n    labs(\n        x = \"In Top 50%?\",\n        y = \"Proportion\",\n        fill = \"Star baker?\"\n    ) +\n    coord_flip()\n\n\n\n\n\n\n\n\nYes, it does seem like being in the top 50% makes you more likely to win star baker, but not by a lot."
   },
   {
     "objectID": "posts/bakeoff_technical/index.html#splitting-by-week",
@@ -53,13 +53,62 @@
     "href": "posts/welcome/index.html",
     "title": "Welcome!",
     "section": "",
-    "text": "This is the first post my a Quarto blog. Welcome!\n\nIn this blog, I’m hoping to keep myself both on track and off track. Brief summaries of papers that I’ve read will keep my on track, while analyses of toy data will keep me off track (but allow me to expand my skills and my knowledge of various methods). My hope is that this blog will keep me producing things, rather than leaving things in half-finished states because they’re not quite perfect.\nI plan to post guides on all of the features of a given method (as implemented in R or Python), literature review updates on papers that I think are important for my own work, interesting little mathematical oddities, and brief applications of methods to data that I think are fun."
+    "text": "This is the first post my Quarto blog. Welcome!\n\nIn this blog, I’m hoping to keep myself both on track and off track. Brief summaries of papers that I’ve read will keep my on track, while analyses of toy data will keep me off track (but allow me to expand my skills and my knowledge of various methods). My hope is that this blog will keep me producing things, rather than leaving things in half-finished states because they’re not quite perfect.\nI plan to post guides on all of the features of a given method (as implemented in R or Python), literature review updates on papers that I think are important for my own work, interesting little mathematical oddities, and brief applications of methods to data that I think are fun."
+  },
+  {
+    "objectID": "posts/stackoverflow/index.html",
+    "href": "posts/stackoverflow/index.html",
+    "title": "Stackoverflow Analysis",
+    "section": "",
+    "text": "This post is the start of an analysis of stackoverflow data that was initially intended for an example assignment in a course. The code was starting to look a little scary, so I decided not to show it.\nsuppressPackageStartupMessages({\n  library(here)\n  library(tidyverse)\n  library(patchwork)\n  library(ggridges)\n})\ntheme_set(theme_bw())\n\n# Downloaded from https://survey.stackoverflow.co/\nso &lt;- read_csv(\n  here(\"data\", \"survey_results_public.csv.gz\"),\n  show_col_types = FALSE\n) |&gt; \n  as_tibble()"
+  },
+  {
+    "objectID": "posts/stackoverflow/index.html#which-languages-do-people-know",
+    "href": "posts/stackoverflow/index.html#which-languages-do-people-know",
+    "title": "Stackoverflow Analysis",
+    "section": "Which languages do people know?",
+    "text": "Which languages do people know?\n\nso_cad |&gt;\n    ggplot() +\n    aes(x = fct_infreq(Langs), fill = Langs) +\n    theme(legend.position = \"none\") +\n    geom_bar() +\n    coord_flip() +\n    # scales = \"free_x\" makes it so the x-axis is different for diff facets.\n    facet_wrap(~ DevClass, scales = \"free_x\")\n\n\n\n\n\n\n\n\n\nNot many people know Julia, and those who do appear to be researchers.\nMost people in this sample (which is specifically data-related jobs) know python, rather than R.\nData Scientists that know R tend to also know Python and SQL."
+  },
+  {
+    "objectID": "posts/stackoverflow/index.html#workcode-experience",
+    "href": "posts/stackoverflow/index.html#workcode-experience",
+    "title": "Stackoverflow Analysis",
+    "section": "Work/Code Experience",
+    "text": "Work/Code Experience\n\nso_cad |&gt;\n    filter(DevType != \"Student\", Age != \"Prefer not to say\") |&gt;\n    ggplot() +\n    aes(y = WorkExp, x = YearsCode) +\n    geom_point() +\n    geom_abline(intercept = 0, slope = 1, colour = \"red\") +\n    facet_wrap(~ Age) +\n    labs(\n        x = \"Years of Coding Experience\",\n        y = \"Years of Work Experience\",\n        title = \"Working and Coding Experience, by Age Group\",\n        subtitle = \"People above the red line have been working longer than they've been coding.\"\n    )\n\n\n\n\n\n\n\n\n\nOlder people are more likely to have had to learn to code after they started working. Younger people have learned to code before they entered the workforce.\nRegardless of age group, the slope of the points appears to be 1 - people have been coding at the same rate as they’ve been working, regardless of when they started either.\nThose 65 year-olds have been coding for a long time!!!\n\nThis probably says something about the data collection! The data only includes programmers/data scientists, so there’s a bias as to who we’re looking at."
+  },
+  {
+    "objectID": "posts/stackoverflow/index.html#experience-and-language",
+    "href": "posts/stackoverflow/index.html#experience-and-language",
+    "title": "Stackoverflow Analysis",
+    "section": "Experience and Language",
+    "text": "Experience and Language\n\nso_cad |&gt;\n    filter(!Age %in% c(\"Prefer not to say\", \"Under 18 years old\")) |&gt;\n    select(Age, CompCAD, YearsCode, r, python, julia, sql) |&gt;\n    pivot_longer(-c(Age, CompCAD, YearsCode)) |&gt;\n    filter(value) |&gt;\n    select(-value) |&gt;\n    ggplot() +\n    aes(x = YearsCode, y = name, fill = name) +\n    geom_density_ridges(bandwidth = 1.5, alpha = 0.75, rel_min_height = 0.05) +\n    facet_wrap(~ Age)\n\n\n\n\n\n\n\n\n\nMost people who learned Julia have already been programming for a long time; in other words, people only learn Julia once they’re comfortable with other languages.\n65 year-olds only know Python.\nDistribution for R and Python are similar - looks like people are learning them at similar rates!\n\nDue to the nature of pivoting, the “R” and the “Python” plots will include many of the same people."
+  },
+  {
+    "objectID": "posts/stackoverflow/index.html#wage-and-coding-experience",
+    "href": "posts/stackoverflow/index.html#wage-and-coding-experience",
+    "title": "Stackoverflow Analysis",
+    "section": "Wage and Coding Experience",
+    "text": "Wage and Coding Experience\n\nso_cad |&gt;\n    select(CompCAD, YearsCode, r, python, julia, sql) |&gt;\n    pivot_longer(-c(CompCAD, YearsCode)) |&gt;\n    filter(value) |&gt;\n    select(-value) |&gt;\n    ggplot() +\n    aes(x = YearsCode, y = CompCAD, colour = name) +\n    geom_point() +\n    geom_smooth(se = FALSE, formula = y ~ x, method = \"lm\") +\n    facet_wrap(~ name)\n\n\n\n\n\n\n\n\nIn the plot above, note that many of the points are the same across facets. The people in the “python” plot very likely know another language.\n\nRegardless of which language you learn, more experience seems to increase your pay."
+  },
+  {
+    "objectID": "posts/stackoverflow/index.html#wage-and-language-langwage",
+    "href": "posts/stackoverflow/index.html#wage-and-language-langwage",
+    "title": "Stackoverflow Analysis",
+    "section": "Wage and Language (LangWage?)",
+    "text": "Wage and Language (LangWage?)\n\ncolour_by_language &lt;- function(language) {\n    ggplot(filter(so_cad, CompCAD &lt; 500000)) +\n        aes(y = CompCAD, x = Langs, fill = {{ language }}) +\n        geom_boxplot() +\n        coord_flip() +\n        scale_fill_manual(\n            values = c(\"red\", \"green\")\n        ) +\n        labs(\n            x = \"Compensation (Canadian Dollars)\",\n            y = NULL,\n            title = substitute(language),\n            fill = \"Language Present?\"\n        )\n}\n\ngg_r &lt;- colour_by_language(r)\ngg_p &lt;- colour_by_language(python)\ngg_s &lt;- colour_by_language(sql)\ngg_j &lt;- colour_by_language(julia)\n\ngg_r + gg_p + gg_s + gg_j +\n    plot_layout(nrow = 1, axes = \"collect\", guides = \"collect\") +\n    plot_annotation(title = \"Which Languages Have Higher Pay?\",\n        subtitle = \"All sets of plots are the exact same except for colour\") &\n    theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\nMore languages appears to be associated with more pay.\n\nEspecially if that language is SQL, it would seem.\n\nNote that SQL alone doesn’t get you a high salary.\n\nAdding Julia also seems to increase pay, but this is likely not causal. Perhaps those who need to learn Julia are in a better job already, rather than learning Julia and then getting a better job.\nPython+SQL and R+SQL seem to be the best bang for your buck - with just two languages, you get almost the full benefit of Python+R+SQL+Julia"
+  },
+  {
+    "objectID": "posts/stackoverflow/index.html#model-plot-3-wage-age-and-educage",
+    "href": "posts/stackoverflow/index.html#model-plot-3-wage-age-and-educage",
+    "title": "Stackoverflow Analysis",
+    "section": "Model Plot 3: Wage, Age, and Educage",
+    "text": "Model Plot 3: Wage, Age, and Educage\n\nso_cad |&gt;\n    filter(!Age %in% c(\"Prefer not to say\", \"Under 18 years old\")) |&gt;\n    filter(CompCAD &lt; 500000) |&gt;\n    mutate(\n        EdLevel = fct_relevel(\n            EdLevel,\n            c(\"Secondary\", \"Some College/University\", \"Bachelor’s\",\n                \"Master’s\", \"Associate\", \"Professional\", \"Other\")\n        )\n    ) |&gt;\n    ggplot() +\n    aes(x = EdLevel, y = CompCAD, fill = Age) +\n    geom_violin(scale = \"count\") + # Widths proportional to amount of data\n    facet_wrap(~ Age) +\n    coord_flip()\n\nWarning: Groups with fewer than two datapoints have been dropped.\nℹ Set `drop = FALSE` to consider such groups for position adjustment purposes.\nGroups with fewer than two datapoints have been dropped.\nℹ Set `drop = FALSE` to consider such groups for position adjustment purposes.\n\n\n\n\n\n\n\n\n\n\nFor people 35-44 or 45-54 years old, a Master’s means they make less money!?!\n\nMaybe the master’s degree was in a different field than data science?\n\nProfessional Degrees appear to help a lot!\nVery few people (especially yhose older than 25) have only a Seconday School education.\nA surprising number of people in the 18-24 range have a Bachelor’s degree.\n\nThey may have answer “Bachelor’s” even if they aren’t yet completed?"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "DevanNightly",
     "section": "",
-    "text": "Here are some posts.\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 17, 2025\n\n\nGreat British Bakeoff: The Technical\n\n\nDevan Becker\n\n\n\n\nApr 15, 2025\n\n\nWelcome!\n\n\nDevan Becker\n\n\n\n\n\nNo matching items"
+    "text": "Stackoverflow Analysis\n\n\n\n\n\n\nfun\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nApr 18, 2025\n\n\nDevan Becker\n\n\n\n\n\n\n\n\n\n\n\n\nGreat British Bakeoff: The Technical\n\n\n\n\n\n\nanalysis\n\n\nfun\n\n\n\n\n\n\n\n\n\nApr 17, 2025\n\n\nDevan Becker\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 15, 2025\n\n\nDevan Becker\n\n\n\n\n\n\nNo matching items"
   }
 ]

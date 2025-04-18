@@ -40,7 +40,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-46afff741ff25fd1acea76d9841ee66e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4f533c6034a6e23a70418f447521cdcd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,9 +78,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -186,7 +186,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZnVu">fun <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZnVu">fun <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -194,51 +194,118 @@ window.Quarto = {
 
 
 
-<p>Here are some posts.</p>
 
 
 
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Y29kZSUyQ2FuYWx5c2lzJTJDZnVu" data-listing-date-sort="1744862400000" data-listing-file-modified-sort="1744938676616" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="596" data-listing-title-sort="Great British Bakeoff: The Technical" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Apr 17, 2025</span>
-</td>
-<td>
-<a href="./posts/bakeoff_technical/index.html" class="title listing-title">Great British Bakeoff: The Technical</a>
-</td>
-<td>
-<span class="listing-author">Devan Becker</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="bmV3cw==" data-listing-date-sort="1744689600000" data-listing-file-modified-sort="1744730138563" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="130" data-listing-title-sort="Welcome!" data-listing-filename-sort="index.qmd">
-<td>
-<span class="listing-date">Apr 15, 2025</span>
-</td>
-<td>
-<a href="./posts/welcome/index.html" class="title listing-title">Welcome!</a>
-</td>
-<td>
-<span class="listing-author">Devan Becker</span>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="ZnVuJTJDYW5hbHlzaXM=" data-listing-date-sort="1744948800000" data-listing-file-modified-sort="1744993388053" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2030">
+<div class="thumbnail">
+<p><a href="./posts/stackoverflow/index.html" class="no-external"></a></p><a href="./posts/stackoverflow/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/stackoverflow/index_files/figure-html/unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/stackoverflow/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/stackoverflow/index.html" class="no-external">Stackoverflow Analysis</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/stackoverflow/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">
+fun
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
+analysis
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/stackoverflow/index.html" class="no-external">This post is the start of an analysis of stackoverflow data that was initially intended for an example assignment in a course. The code was starting to look a little scary…</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/stackoverflow/index.html" class="no-external">
+<div class="listing-date">
+Apr 18, 2025
+</div>
+<div class="listing-author">
+Devan Becker
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="YW5hbHlzaXMlMkNmdW4=" data-listing-date-sort="1744862400000" data-listing-file-modified-sort="1744992045210" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="598">
+<div class="thumbnail">
+<p><a href="./posts/bakeoff_technical/index.html" class="no-external"></a></p><a href="./posts/bakeoff_technical/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/bakeoff_technical/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/bakeoff_technical/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/bakeoff_technical/index.html" class="no-external">Great British Bakeoff: The Technical</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/bakeoff_technical/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
+analysis
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">
+fun
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/bakeoff_technical/index.html" class="no-external">This is quick exploration of whether doing well in the technical means you’re more likely to be star baker that week.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/bakeoff_technical/index.html" class="no-external">
+<div class="listing-date">
+Apr 17, 2025
+</div>
+<div class="listing-author">
+Devan Becker
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="bmV3cw==" data-listing-date-sort="1744689600000" data-listing-file-modified-sort="1744991327762" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
+<div class="thumbnail">
+<p><a href="./posts/welcome/index.html" class="no-external"></a></p><a href="./posts/welcome/index.html" class="no-external">
+<p class="card-img-top"><img src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p>
+</a><p><a href="./posts/welcome/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/welcome/index.html" class="no-external">Welcome!</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/welcome/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">
+news
+</div>
+</div>
+<div class="listing-description">
+<a href="./posts/welcome/index.html" class="no-external">This is the first post my Quarto blog. Welcome!</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/welcome/index.html" class="no-external">
+<div class="listing-date">
+Apr 15, 2025
+</div>
+<div class="listing-author">
+Devan Becker
+</div>
+</a>
+</div>
+</div>
+</div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>

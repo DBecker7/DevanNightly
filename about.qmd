@@ -2,14 +2,14 @@
 title: "About"
 image: profile.jpg
 about:
-  template: trestles
+  template: solana
   links:
-    - icon: linkedin
-      text: LinkedIn
-      href: https://linkedin.com
     - icon: github
       text: Github
       href: https://github.com/DBecker7
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/devan-becker-a95248212/
 
 ---
 
@@ -38,7 +38,7 @@ M.Sc. Statistics (collaborative with biostatistics), Western University
 
 B.Sc. Honours Mathematics, Wilfrid Laurier University
 
-## Experience
+## Research Experience
 
 Assistant Professor, Wilfrid Laurier University
 

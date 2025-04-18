@@ -13,5 +13,8 @@
   },
   "posts/bakeoff_technical/index.qmd": {
     "index.html": "0c6a425e"
+  },
+  "posts/stackoverflow/index.qmd": {
+    "index.html": "c91a5f38"
   }
 }

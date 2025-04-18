@@ -11,5 +11,5 @@ website:
         href: https://github.com/
 format:
   html:
-    theme: [flatly, smaller_lists.scss]
+    theme: [minty, smaller_lists.scss]
     css: styles.css

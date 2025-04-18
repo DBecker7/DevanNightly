@@ -2,8 +2,7 @@
 title: "Great British Bakeoff: The Technical"
 author: "Devan Becker"
 date: "2025-04-17"
-categories: [code, analysis, fun]
-image: "image.jpg"
+categories: [analysis, fun]
 execute:
     code-fold: true
 ---
@@ -16,17 +15,18 @@ Since there's a different number of bakers each week, there are a couple ways we
 - Split the data based on the number of bakers, then see if being 1st out of, say, 8 bakers is different from being first out of 4 bakers.
 - Check the variable importance of technical rank using a predictive model. This requires a lot more information than I have available, and will not be persued here.
 
-## Top half of the Technical
+## Top Half of the Technical
 
 ```{r}
 #| fig.height: 2
 suppressPackageStartupMessages({
     library(dplyr)
     library(ggplot2)
+    library(here)
 })
 theme_set(theme_bw())
 
-bo <- read.csv("GreatBritishBakeOff.csv")
+bo <- read.csv(here("data", "GreatBritishBakeOff.csv"))
 
 bo <- bo |>
     filter(Competed == 1, !is.na(Technical.Rank)) |>
@@ -35,8 +35,6 @@ bo <- bo |>
         pos_perc = Technical.Rank / max(Technical.Rank)
     ) |>
     ungroup()
-
-table(bo$Star.Baker, bo$pos_perc <= 0.5)
 
 ggplot(bo) +
     aes(x = pos_perc <= 0.5, fill = factor(Star.Baker == 1)) +
