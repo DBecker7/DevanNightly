@@ -2,8 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/welcome/index.html",
-      "/posts/bakeoff_technical/index.html"
+      "/posts/bakeoff_technical/index.html",
+      "/posts/welcome/index.html"
     ]
   }
 ]

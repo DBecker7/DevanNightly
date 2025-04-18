@@ -1,7 +1,7 @@
 ---
 title: "Great British Bakeoff: The Technical"
 author: "Devan Becker"
-date: "2025-04-15"
+date: "2025-04-17"
 categories: [code, analysis, fun]
 image: "image.jpg"
 execute:
