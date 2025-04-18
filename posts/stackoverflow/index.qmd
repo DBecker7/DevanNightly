@@ -5,6 +5,7 @@ date: "2025-04-18"
 categories: [fun, analysis]
 execute:
   echo: true
+code-fold: true
 ---
 
 This post is the start of an analysis of stackoverflow data that was initially intended for an example assignment in a course. The code was starting to look a little scary, so I decided not to show it.
@@ -120,7 +121,7 @@ so_cad <- left_join(so_work, exchange_join, by = join_by(Currency)) |>
         )
     )
 
-so_cad
+so_cad |> head(10) |> knitr::kable()
 ```
 
 
