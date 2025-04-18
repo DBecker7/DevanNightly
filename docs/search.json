@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Assistant Professor of Statistics and Data Science at Wilfrid Laurier University.\nThis is my personal blog, which I’m using to keep myself updated on current research in my areas of interest by reviewing some articles and applying interesting methods to toy data.\nI want to be an amateur, unburdened by the expectations of mastery. I want to approach each topic with unbridled curiousity and a willingness to fail publicly. Errors will be frequent and precious. Learning stops when I stop making mistakes, and I never want to stop learning."
+  },
+  {
+    "objectID": "about.html#interests",
+    "href": "about.html#interests",
+    "title": "About",
+    "section": "Interests",
+    "text": "Interests\nThe following are the proposed topics for this blog. Some of these topics are things that I want to keep up-to-date on, and others are topics that I don’t\n\nEnvironmental statisitics and data science\nBayesian statistics\nSports analytics\nNovel modifications of random forests and neural networks\nHow does causal inference work? Is it useful in my studies?"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\nPh.D. Statistics, Western University\nM.Sc. Statistics (collaborative with biostatistics), Western University\nB.Sc. Honours Mathematics, Wilfrid Laurier University"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\nAssistant Professor, Wilfrid Laurier University\nPresidential Data Fellow, Univerisity of Western Ontario"
+  },
+  {
+    "objectID": "posts/bakeoff_technical/index.html",
+    "href": "posts/bakeoff_technical/index.html",
+    "title": "Great British Bakeoff: The Technical",
+    "section": "",
+    "text": "This is quick exploration of whether doing well in the technical means you’re more likely to be star baker that week.\nSince there’s a different number of bakers each week, there are a couple ways we can go about this."
+  },
+  {
+    "objectID": "posts/bakeoff_technical/index.html#top-half-of-the-technical",
+    "href": "posts/bakeoff_technical/index.html#top-half-of-the-technical",
+    "title": "Great British Bakeoff: The Technical",
+    "section": "Top half of the Technical",
+    "text": "Top half of the Technical\n\nsuppressPackageStartupMessages({\n    library(dplyr)\n    library(ggplot2)\n})\ntheme_set(theme_bw())\n\nbo &lt;- read.csv(\"GreatBritishBakeOff.csv\")\n\nbo &lt;- bo |&gt;\n    filter(Competed == 1, !is.na(Technical.Rank)) |&gt;\n    group_by(Season, Week.Number) |&gt;\n    mutate(\n        pos_perc = Technical.Rank / max(Technical.Rank)\n    ) |&gt;\n    ungroup()\n\ntable(bo$Star.Baker, bo$pos_perc &lt;= 0.5)\n\n   \n    FALSE TRUE\n  0   386  283\n  1    24   74\n\nggplot(bo) +\n    aes(x = pos_perc &lt;= 0.5, fill = factor(Star.Baker == 1)) +\n    geom_bar(position = \"fill\", colour = 1) +\n    labs(\n        x = \"In Top 50%?\",\n        y = \"Proportion\",\n        fill = \"Star baker?\"\n    ) +\n    coord_flip()\n\n\n\n\n\n\n\n\nYes, it does seem like being in the top 50% makes you more likely to win star baker, but not by a lot."
+  },
+  {
+    "objectID": "posts/bakeoff_technical/index.html#splitting-by-week",
+    "href": "posts/bakeoff_technical/index.html#splitting-by-week",
+    "title": "Great British Bakeoff: The Technical",
+    "section": "Splitting by Week",
+    "text": "Splitting by Week\nPerhaps it’s more important to do well in the technical in the early weeks?\nLooking at the rank in each week will help us see exactly what’s going on. The following plot is a little different from the one before: It’s just the raw counts, rather than percentages.\n\nggplot(bo) +\n    aes(x = Technical.Rank, fill = factor(Star.Baker == 1)) +\n    geom_bar(position = \"stack\", colour = 1) +\n    facet_wrap(~ Week.Number) +\n    labs(\n        x = \"Rank in the Technical Challenge\",\n        y = \"Count\",\n        fill = \"Star Baker?\"\n    )\n\n\n\n\n\n\n\n\nFrom this plot, we can see that star bakers tend to have won the technical. In other words, the baker who wins the technical appears to be more likely to become star baker.\nA couple of caveats:\n\nIn the early weeks it seems more spread out. I haven’t done any stats for this, it’s just vibes.\nIn weeks 5, 7, 9, and 10, there was at least one person who came in last in the technical but got star baker.\n\nYes, that includes the finale - there’s a baker who got last in the technical but won the whole show!\nNote: there are a couple of seasons which had more bakers than expect, for example week 7 usually has 6 bakers left, but there’s a lone observation for a season that had 7 bakers that week. I didn’t consider this for this conclusion.\n\nIn weeks 3 and 10, the person who got second in the technical is the most likely to have been star baker.\n\nIn conclusion, doing well in the technical does tend to be associated with becoming star baker, but this relationship is far from perfect.\nIf I had to guess, it looks like the technical probably isn’t weighted as highly as the other two challenges."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome!",
+    "section": "",
+    "text": "This is the first post my a Quarto blog. Welcome!\n\nIn this blog, I’m hoping to keep myself both on track and off track. Brief summaries of papers that I’ve read will keep my on track, while analyses of toy data will keep me off track (but allow me to expand my skills and my knowledge of various methods). My hope is that this blog will keep me producing things, rather than leaving things in half-finished states because they’re not quite perfect.\nI plan to post guides on all of the features of a given method (as implemented in R or Python), literature review updates on papers that I think are important for my own work, interesting little mathematical oddities, and brief applications of methods to data that I think are fun."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DevanNightly",
+    "section": "",
+    "text": "This is a test. Can I put text here?\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nApr 15, 2025\n\n\nWelcome!\n\n\nDevan Becker\n\n\n\n\nApr 15, 2025\n\n\nGreat British Bakeoff: The Technical\n\n\nDevan Becker\n\n\n\n\n\nNo matching items"
+  }
+]

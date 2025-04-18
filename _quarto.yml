@@ -1,0 +1,15 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Devan Nightly"
+  navbar:
+    right:
+      - about.qmd
+      - icon: github
+        href: https://github.com/
+format:
+  html:
+    theme: [flatly, smaller_lists.scss]
+    css: styles.css

@@ -1,0 +1,45 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: trestles
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com
+    - icon: github
+      text: Github
+      href: https://github.com/DBecker7
+
+---
+
+Assistant Professor of Statistics and Data Science at Wilfrid Laurier University.
+
+This is my personal blog, which I'm using to keep myself updated on current research in my areas of interest by reviewing some articles and applying interesting methods to toy data.
+
+I want to be an amateur, unburdened by the expectations of mastery. I want to approach each topic with unbridled curiousity and a willingness to fail publicly. Errors will be frequent and precious. Learning stops when I stop making mistakes, and I never want to stop learning.
+
+## Interests
+
+The following are the proposed topics for this blog. Some of these topics are things that I want to keep up-to-date on, and others are topics that I don't 
+
+- Environmental statisitics and data science
+- Bayesian statistics
+- Sports analytics
+- Novel modifications of random forests and neural networks
+- How does causal inference work? Is it useful in my studies?
+
+
+## Education
+
+Ph.D. Statistics, Western University
+
+M.Sc. Statistics (collaborative with biostatistics), Western University
+
+B.Sc. Honours Mathematics, Wilfrid Laurier University
+
+## Experience
+
+Assistant Professor, Wilfrid Laurier University
+
+Presidential Data Fellow, Univerisity of Western Ontario

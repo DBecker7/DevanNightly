@@ -1,0 +1,85 @@
+---
+title: "Great British Bakeoff: The Technical"
+author: "Devan Becker"
+date: "2025-04-15"
+categories: [code, analysis, fun]
+image: "image.jpg"
+execute:
+    code-fold: true
+---
+
+This is quick exploration of whether doing well in the technical means you're more likely to be star baker that week.
+
+Since there's a different number of bakers each week, there are a couple ways we can go about this. 
+
+- Check if the baker was in the top 50% and whether they won star baker.
+- Split the data based on the number of bakers, then see if being 1st out of, say, 8 bakers is different from being first out of 4 bakers.
+- Check the variable importance of technical rank using a predictive model. This requires a lot more information than I have available, and will not be persued here.
+
+## Top half of the Technical
+
+```{r}
+#| fig.height: 2
+suppressPackageStartupMessages({
+    library(dplyr)
+    library(ggplot2)
+})
+theme_set(theme_bw())
+
+bo <- read.csv("GreatBritishBakeOff.csv")
+
+bo <- bo |>
+    filter(Competed == 1, !is.na(Technical.Rank)) |>
+    group_by(Season, Week.Number) |>
+    mutate(
+        pos_perc = Technical.Rank / max(Technical.Rank)
+    ) |>
+    ungroup()
+
+table(bo$Star.Baker, bo$pos_perc <= 0.5)
+
+ggplot(bo) +
+    aes(x = pos_perc <= 0.5, fill = factor(Star.Baker == 1)) +
+    geom_bar(position = "fill", colour = 1) +
+    labs(
+        x = "In Top 50%?",
+        y = "Proportion",
+        fill = "Star baker?"
+    ) +
+    coord_flip()
+
+```
+
+Yes, it does seem like being in the top 50% makes you more likely to win star baker, but not by a lot.
+
+## Splitting by Week
+
+Perhaps it's more important to do well in the technical in the early weeks?
+
+Looking at the rank in each week will help us see exactly what's going on. The following plot is a little different from the one before: It's just the raw counts, rather than percentages. 
+
+```{r}
+ggplot(bo) +
+    aes(x = Technical.Rank, fill = factor(Star.Baker == 1)) +
+    geom_bar(position = "stack", colour = 1) +
+    facet_wrap(~ Week.Number) +
+    labs(
+        x = "Rank in the Technical Challenge",
+        y = "Count",
+        fill = "Star Baker?"
+    )
+```
+
+From this plot, we can see that star bakers tend to have won the technical. In other words, the baker who wins the technical appears to be more likely to become star baker. 
+
+A couple of caveats:
+
+- In the early weeks it seems more spread out. I haven't done any stats for this, it's just vibes.
+- In weeks 5, 7, 9, and 10, there was at least one person who came in last in the technical but got star baker. 
+    - Yes, that includes the finale - there's a baker who got last in the technical but won the whole show!
+    - Note: there are a couple of seasons which had more bakers than expect, for example week 7 usually has 6 bakers left, but there's a lone observation for a season that had 7 bakers that week. I didn't consider this for this conclusion.
+- In weeks 3 and 10, the person who got second in the technical is the most likely to have been star baker.
+
+In conclusion, doing well in the technical does tend to be associated with becoming star baker, but this relationship is far from perfect.
+
+If I had to guess, it looks like the technical probably isn't weighted as highly as the other two challenges.

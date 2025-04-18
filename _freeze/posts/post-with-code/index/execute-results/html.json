@@ -1,0 +1,17 @@
+{
+  "hash": "912e8f1a31b07c6ad5a63436ed01a822",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Great British Bakeoff: The Technical\"\nauthor: \"Devan Becker\"\ndate: \"2025-04-15\"\ncategories: [code, analysis, fun]\nimage: \"image.jpg\"\n---\n\n\n\nThis is quick exploration of whether doing well in the technical means you're more likely to be star baker that week. \n\nSince there's a different number of bakers each week, there are a couple ways we can go about this. The first way is to just check if the baker was in the top 50%. \n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nsuppressPackageStartupMessages({\n    library(dplyr)\n    library(ggplot2)\n})\ntheme_set(theme_bw())\n\nbo <- read.csv(\"GreatBritishBakeOff.csv\")\n\nbo <- bo |>\n    filter(Competed == 1, !is.na(Technical.Rank)) |>\n    group_by(Season, Week.Number) |>\n    mutate(\n        pos_perc = Technical.Rank / max(Technical.Rank)\n    )\n\ntable(bo$Star.Baker, bo$pos_perc <= 0.5)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n   \n    FALSE TRUE\n  0   386  283\n  1    24   74\n```\n\n\n:::\n\n```{.r .cell-code}\nggplot(bo) +\n    aes(x =pos_perc <= 0.5, fill = factor(Star.Baker)) +\n    geom_bar(position = \"fill\")\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/unnamed-chunk-1-1.png){width=672}\n:::\n:::\n\n\n\nIt looks like being in the bottom 50% makes you *more* likely to win star pa\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
