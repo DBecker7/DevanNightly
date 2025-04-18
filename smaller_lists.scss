@@ -1,4 +1,9 @@
 /*-- scss:defaults --*/
+$primary: #004a94;
+$info: #00A3E0;
+$warning: #F2A900;
+$danger: #EE2737;
+$success: #00A3E0;
 
 /*-- scss:rules --*/
 
@@ -7,4 +12,16 @@ ul li ul {
 }
 ol li ol {
   margin-bottom:0em;
+}
+
+blockquote p {
+  color: $info;
+}
+
+blockquote li {
+  color: $info;
+}
+
+h1, h2, h3 {
+  color: $primary;
 }
