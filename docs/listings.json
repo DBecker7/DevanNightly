@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/namesake_announcement/index.html",
       "/posts/stackoverflow/index.html",
       "/posts/bakeoff_technical/index.html",
       "/posts/welcome/index.html"

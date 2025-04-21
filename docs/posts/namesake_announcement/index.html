@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Devan Becker">
+<meta name="dcterms.date" content="2025-04-21">
 
-<title>DevanNightly – Devan Nightly</title>
+<title>Namesake Analyses – Devan Nightly</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a5a7a9aa3d5b07c7c3601f2586d7e9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a5a7a9aa3d5b07c7c3601f2586d7e9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +68,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Devan Nightly</span>
     </a>
   </div>
@@ -149,7 +91,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -167,185 +109,83 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">DevanNightly</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Namesake Analyses</h1>
+            <p class="subtitle lead">Restriction is the mother of creativity</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">namesake</div>
+                <div class="quarto-category">news</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Devan Becker </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 21, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZnVu">fun <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bmFtZXNha2U=">namesake <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>This is an idea I’ve had going for a while, and this seems like as good a time as any to make it happen.</p>
+<p><strong>The general idea</strong>: Sports teams are named after things, and those things get studied academically. In this series, I want to take the namesake of a sports team and try to apply the methods used for it’s namesake. My hope is that this will bring in some new perspectives to sports analytics: restrictions breed creativity.</p>
+<p>I would be ecstatic if anyone stole this idea, but it’s even better if you reach out and we can collaborate on something! For the most part I’m not expecting publications unless one of the analyses gets very involved.</p>
+<section id="project-ideas" class="level3">
+<h3 class="anchored" data-anchor-id="project-ideas">Project Ideas</h3>
+<p>All my ideas are currently based on NHL and PWHL, so please feel free to suggest other teams/analyses!</p>
+<ul>
+<li><strong>Tampa Bay Lightning Strikes</strong>: Lightning strikes tend to happen in clusters in space and time. Is this also true for shots by the Tampa Bay Lightning?
+<ul>
+<li>Point process methods, especially Cox processes, specifically looking for clustering.</li>
+<li>Aternatively, do a clustering of all shot locations, then see if there’s some form of self-excitation.</li>
+</ul></li>
+<li><strong>Ottawa Senators’ Speeches</strong>: The Hansard is a transcript of parliamentary debates, and there are many analyses of this database that look at trends in the words used over time. Can we analyse post-game summaries of the Ottawa Senators with the same methods?
+<ul>
+<li>Perform a word embedding based on post-game summaries, then do a basic dimension reduction.</li>
+<li>Alternatively, use a simple TF-IDF and plot it temporally.</li>
+<li>A full analysis might be a dynamic topic modelling approach.</li>
+</ul></li>
+<li><strong>Pittsburgh Penguins’ Habitat Utilization</strong>: Much research has been done on where penguins like to sleep, eat, and hunt, but where do the Pittsburgh Penguins eat, sleep, and hunt?
+<ul>
+<li>Great opportunity for a marked point process, especially one where the previous events are taken into account.</li>
+<li>Alternatively, partition the ice and consider a temporal ICAR model.</li>
+</ul></li>
+<li><strong>First Minnesota Frost</strong>: For gardeners, it’s important when the first frost of the year is going to be. For the Minnesota Frost, when will the first shot (or goal) be?
+<ul>
+<li>The time-to-first frost has been analysed several ways, including survival analysis.</li>
+<li>Alternatively: time-to-nth-frost (shot) as a vector regression or multi-step survival analysis.</li>
+</ul></li>
+<li><strong>Calgary Forest Flames</strong>: There’s so much analysis of forest fires, there’s bound to be something useful here!</li>
+</ul>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="bmFtZXNha2UlMkNuZXdz" data-listing-date-sort="1745208000000" data-listing-file-modified-sort="1745275970988" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="403">
-<div class="thumbnail">
-<p><a href="./posts/namesake_announcement/index.html" class="no-external"></a></p><a href="./posts/namesake_announcement/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/namesake_announcement/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/namesake_announcement/index.html" class="no-external">Namesake Analyses</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/namesake_announcement/index.html" class="no-external">Restriction is the mother of creativity</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bmFtZXNha2U='); return false;">
-namesake
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">
-news
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/namesake_announcement/index.html" class="no-external">This is an idea I’ve had going for a while, and this seems like as good a time as any to make it happen.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/namesake_announcement/index.html" class="no-external">
-<div class="listing-date">
-Apr 21, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="ZnVuJTJDYW5hbHlzaXM=" data-listing-date-sort="1744948800000" data-listing-file-modified-sort="1744994165792" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2034">
-<div class="thumbnail">
-<p><a href="./posts/stackoverflow/index.html" class="no-external"></a></p><a href="./posts/stackoverflow/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/stackoverflow/index_files/figure-html/unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/stackoverflow/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/stackoverflow/index.html" class="no-external">Stackoverflow Analysis</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/stackoverflow/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">
-fun
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/stackoverflow/index.html" class="no-external">This post is the start of an analysis of stackoverflow data that was initially intended for an example assignment in a course. The code was starting to look a little scary…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/stackoverflow/index.html" class="no-external">
-<div class="listing-date">
-Apr 18, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="YW5hbHlzaXMlMkNmdW4=" data-listing-date-sort="1744862400000" data-listing-file-modified-sort="1744992045210" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="598">
-<div class="thumbnail">
-<p><a href="./posts/bakeoff_technical/index.html" class="no-external"></a></p><a href="./posts/bakeoff_technical/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/bakeoff_technical/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/bakeoff_technical/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/bakeoff_technical/index.html" class="no-external">Great British Bakeoff: The Technical</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/bakeoff_technical/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">
-fun
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/bakeoff_technical/index.html" class="no-external">This is quick exploration of whether doing well in the technical means you’re more likely to be star baker that week.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/bakeoff_technical/index.html" class="no-external">
-<div class="listing-date">
-Apr 17, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="bmV3cw==" data-listing-date-sort="1744689600000" data-listing-file-modified-sort="1744991327762" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
-<div class="thumbnail">
-<p><a href="./posts/welcome/index.html" class="no-external"></a></p><a href="./posts/welcome/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/welcome/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome/index.html" class="no-external">Welcome!</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/welcome/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">
-news
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/welcome/index.html" class="no-external">This is the first post my Quarto blog. Welcome!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html" class="no-external">
-<div class="listing-date">
-Apr 15, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
