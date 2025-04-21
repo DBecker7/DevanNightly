@@ -1,5 +1,5 @@
 ---
-title: "DevanNightly"
+title: "Devan Nightly (Definitely)"
 listing:
   contents: posts
   sort: "date desc"
