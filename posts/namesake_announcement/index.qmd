@@ -7,8 +7,9 @@ categories: [namesake, news]
 
 This is an idea I've had going for a while, and this seems like as good a time as any to make it happen.
 
-**The general idea**: Sports teams are named after things, and those things get studied academically. In this series, I want to take the namesake of a sports team and try to apply the methods used for it's namesake. My hope is that this will bring in some new perspectives to sports analytics: restrictions breed creativity.
+**The general idea**: Sports teams are named after things, and those things get studied academically. In this series, I want to take the namesake of a sports team and try to apply the methods used for it's namesake. My hope is that this will bring in some new perspectives to sports analytics.
 
+In addition, it would be fun to reverse the process and apply some sports analytics techniques to the namesake! Can we calculate something like WAR or draft prediction to penguins?
 
 I would be ecstatic if anyone stole this idea, but it's even better if you reach out and we can collaborate on something! For the most part I'm not expecting publications unless one of the analyses gets very involved.
 
@@ -19,6 +20,7 @@ All my ideas are currently based on NHL and PWHL, so please feel free to suggest
 - **Tampa Bay Lightning Strikes**: Lightning strikes tend to happen in clusters in space and time. Is this also true for shots by the Tampa Bay Lightning?
   - Point process methods, especially Cox processes, specifically looking for clustering.
   - Aternatively, do a clustering of all shot locations, then see if there's some form of self-excitation.
+  - Potential data source: [Blitzortung.org](https://www.blitzortung.org/en/archive_data.php?stations_users=0&selected_numbers=*&end_date=1745193600&end_time=83100&start_date=1745193600&start_time=75900&rawdata_image=0&north=90&west=-180&east=180&south=-90&map=0&width_orig=640&width_result=640&agespan=60&frames=12&delay=100&last_delay=1000&show_result=1) (only for contributors).
 - **Ottawa Senators' Speeches**: The Hansard is a transcript of parliamentary debates, and there are many analyses of this database that look at trends in the words used over time. Can we analyse post-game summaries of the Ottawa Senators with the same methods?
   - Perform a word embedding based on post-game summaries, then do a basic dimension reduction.
   - Alternatively, use a simple TF-IDF and plot it temporally.
@@ -26,6 +28,7 @@ All my ideas are currently based on NHL and PWHL, so please feel free to suggest
 - **Pittsburgh Penguins' Habitat Utilization**: Much research has been done on where penguins like to sleep, eat, and hunt, but where do the Pittsburgh Penguins eat, sleep, and hunt?
   - Great opportunity for a marked point process, especially one where the previous events are taken into account.
   - Alternatively, partition the ice and consider a temporal ICAR model.
+  - Potential data source: [seabirdtracking.org](https://www.seabirdtracking.org)
 - **First Minnesota Frost**: For gardeners, it's important when the first frost of the year is going to be. For the Minnesota Frost, when will the first shot (or goal) be?
   - The time-to-first frost has been analysed several ways, including survival analysis.
   - Alternatively: time-to-nth-frost (shot) as a vector regression or multi-step survival analysis.
