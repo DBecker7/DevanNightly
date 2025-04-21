@@ -1,0 +1,32 @@
+---
+title: "Namesake Analyses"
+subtitle: "Restriction is the mother of creativity"
+date: "2025-04-21"
+categories: [namesake, news]
+---
+
+This is an idea I've had going for a while, and this seems like as good a time as any to make it happen.
+
+**The general idea**: Sports teams are named after things, and those things get studied academically. In this series, I want to take the namesake of a sports team and try to apply the methods used for it's namesake. My hope is that this will bring in some new perspectives to sports analytics: restrictions breed creativity.
+
+
+I would be ecstatic if anyone stole this idea, but it's even better if you reach out and we can collaborate on something! For the most part I'm not expecting publications unless one of the analyses gets very involved.
+
+### Project Ideas
+
+All my ideas are currently based on NHL and PWHL, so please feel free to suggest other teams/analyses!
+
+- **Tampa Bay Lightning Strikes**: Lightning strikes tend to happen in clusters in space and time. Is this also true for shots by the Tampa Bay Lightning?
+  - Point process methods, especially Cox processes, specifically looking for clustering.
+  - Aternatively, do a clustering of all shot locations, then see if there's some form of self-excitation.
+- **Ottawa Senators' Speeches**: The Hansard is a transcript of parliamentary debates, and there are many analyses of this database that look at trends in the words used over time. Can we analyse post-game summaries of the Ottawa Senators with the same methods?
+  - Perform a word embedding based on post-game summaries, then do a basic dimension reduction.
+  - Alternatively, use a simple TF-IDF and plot it temporally.
+  - A full analysis might be a dynamic topic modelling approach. 
+- **Pittsburgh Penguins' Habitat Utilization**: Much research has been done on where penguins like to sleep, eat, and hunt, but where do the Pittsburgh Penguins eat, sleep, and hunt?
+  - Great opportunity for a marked point process, especially one where the previous events are taken into account.
+  - Alternatively, partition the ice and consider a temporal ICAR model.
+- **First Minnesota Frost**: For gardeners, it's important when the first frost of the year is going to be. For the Minnesota Frost, when will the first shot (or goal) be?
+  - The time-to-first frost has been analysed several ways, including survival analysis.
+  - Alternatively: time-to-nth-frost (shot) as a vector regression or multi-step survival analysis.
+- **Calgary Forest Flames**: There's so much analysis of forest fires, there's bound to be something useful here!
