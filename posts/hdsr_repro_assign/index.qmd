@@ -1,6 +1,7 @@
 ---
 title: Notes on "In-Class Data Analysis Replications"
 date: "2025-04-24"
+categories: [notes, sotl]
 ---
 
 These are some notes and thoughts on the post [In-Class Data Analysis Replications: Teaching Students While Testing Science](https://hdsr.mitpress.mit.edu/pub/4df1pl7f/release/2) in the Harvard Data Science Review, by [Kristina Gligorić](https://hdsr.mitpress.mit.edu/user/kristina-gligoric), [Tiziano Piccardi](https://hdsr.mitpress.mit.edu/user/tiziano-piccardi), [Jake M. Hofman](https://hdsr.mitpress.mit.edu/user/jake-hofman), and [Robert West](https://hdsr.mitpress.mit.edu/user/robert-west), published on Jul 31, 2024.

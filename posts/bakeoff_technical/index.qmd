@@ -7,7 +7,7 @@ execute:
     code-fold: true
 ---
 
-This is quick exploration of whether doing well in the technical means you're more likely to be star baker that week.
+A quick exploration of whether doing well in the technical means you're more likely to be star baker that week.
 
 Since there's a different number of bakers each week, there are a couple ways we can go about this. 
 

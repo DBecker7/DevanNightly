@@ -5,7 +5,7 @@ date: "2025-04-21"
 categories: [namesake, news]
 ---
 
-This is an idea I've had going for a while, and this seems like as good a time as any to make it happen.
+An idea I've had going for a while. Seems like as good a time as any to make it happen.
 
 **The general idea**: Sports teams are named after things, and those things get studied academically. In this series, I want to take the namesake of a sports team and try to apply the methods used for it's namesake. My hope is that this will bring in some new perspectives to sports analytics.
 

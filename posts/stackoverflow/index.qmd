@@ -8,7 +8,7 @@ execute:
 code-fold: true
 ---
 
-This post is the start of an analysis of stackoverflow data that was initially intended for an example assignment in a course. The code was starting to look a little scary, so I decided not to show it.
+The start of an analysis of stackoverflow data that was initially intended for an example assignment in a course. The code was starting to look a little scary, so I decided not to show it to students.
 
 ```{r}
 suppressPackageStartupMessages({
