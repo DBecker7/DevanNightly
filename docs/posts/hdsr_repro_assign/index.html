@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Devan Becker">
+<meta name="dcterms.date" content="2025-04-24">
 
-<title>Devan Nightly (Definitely) – Devan Nightly</title>
+<title>Notes on “In-Class Data Analysis Replications” – Devan Nightly</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a5a7a9aa3d5b07c7c3601f2586d7e9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a5a7a9aa3d5b07c7c3601f2586d7e9ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +68,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Devan Nightly</span>
     </a>
   </div>
@@ -149,7 +91,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -167,213 +109,99 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Devan Nightly (Definitely)</h1>
+    <div class="quarto-title column-body">
+      <h1 class="title">Notes on “In-Class Data Analysis Replications”</h1>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Devan Becker </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 24, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(5)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ZnVu">fun <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bmFtZXNha2U=">namesake <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>These are some notes and thoughts on the post <a href="https://hdsr.mitpress.mit.edu/pub/4df1pl7f/release/2">In-Class Data Analysis Replications: Teaching Students While Testing Science</a> in the Harvard Data Science Review, by&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/kristina-gligoric">Kristina Gligorić</a>,&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/tiziano-piccardi">Tiziano Piccardi</a>,&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/jake-hofman">Jake M. Hofman</a>, and&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/robert-west">Robert West</a>, published on Jul 31, 2024.</p>
+<p>I am interested in this article because I want to incorporate more real-world practice in my teaching, and that does <em>not</em> mean just using interesting data from Kaggle. This article demonstrates a way to incorporate real data while also having the students participate in the broader scientific conversation.</p>
+<p>I will not be covering everything in the article, I’m just noting down some thoughts and some action items for myself and hoping this will be interesting to someone else.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The authors taught a Master’s level course on data science methods at EPFL (École Polytechnique Fédérale de Lausanne). In lieu of a standard project in which students are free to choose their own projects, there was a set of papers to choose from. The students were expected to reproduce two figures from the article they chose: one that the instructors deemed “basic”, and one that the instructors deemed “advanced”. During this process, students answered surveys about their expectations and the realities of their experiences. The students also produced a “creative extension” of the results in the article, in which they were free to analyse the data in a new way.</p>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>One of the interesting results is that the students didn’t actually know what a data analysis entailed. Keeping in mind that these are Master’s students, it is surprising that the students over-estimated the time commitment of data cleaning and under-estimated the time commitment of the actual analysis stage. In my class, I often warn students how long the cleaning takes - maybe I should slow down on that!</p>
+<p>In my opinion, the most important result of the study was that providing a framework in which to do a project with an example that is pertinent to that project allowed the students to better understand the material<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Letting students go free with whatever data they want can lead to rabbit holes that distract from the actual material.</p>
+<p>In the case of this article, the framework they used was replication studies. Instead of giving strict instruction on how to do an analysis, the instructors gave them the goal and let the students find the path. This seems like a great way to structure a project (but it’s not the only way - the end goal doesn’t have to come from published research). Splitting it into a basic and advanced taks helps with stucturing the course since the students can get started without needing to get into complicated methods right away.</p>
+<p>Another really interesting result is that students used more advanced methods in their “creative extension”. This makes sense: the students are stuck in the muck, so they can go even further. The context is laid out for them, they’ve worked with something that someone else thinks is important, and so their minds are primed to keep going. It’s like following someone else’s well-trodden trail, then encouraging them to blaze a little further; the students know which way to go and have the momentum to keep going.</p>
+<p>The authors state that they had two half TA workloads devoted to helping with and grading these projects. For a 300+ person class, this seems like a reasonable workload.</p>
+</section>
+<section id="alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="alternatives">Alternatives</h2>
+<p>The authors state several times that the replications performed in their class have value for the scientific community, but no evidence is provided for this. I don’t doubt that there can be value here, but knowledge isn’t valuable until it’s shared. The replications performed in the classroom are not being shared outside the classroom as far as I can tell. That being said, highlighting failures in replicating a basic figure due to incomplete descriptions is something I will think about when submitting my next paper!</p>
+<p>As I noted above, I love the way that a replication study provides structure for a project. It’s not the only way, but it’s a very elegant way. An alternative way to get this value is to simply let the students reproduce a plot/model made by the instructors (rather than a published article). This gives instructors full control over the context and the level of difficulty, while providing the students a clear goal. The data could also be curated to allow for more creative extensions by including more data or by intentionally only studying a subset of the data in the original analysis.</p>
+<p>This article also reminded me of some replication exercise I saw a while ago. After getting to page 3 of Google search results, I finally found what I was looking for (along with three other similar papers):</p>
+<div class="grid">
+<div class="g-col-8">
+<ul>
+<li><a href="https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-024-02101-x">This study</a> gave a bunch of groups the same data and hypothesis, then asked them to produce a confidence interval. The resultant estimate of each analysis is shown in the image to the right. This demonstrates just how important the “Researcher Degrees of Freedom” or “Garden of Forking Paths” is when doing an analysis.</li>
+<li>Something similar was done in <a href="https://journals.sagepub.com/doi/10.1177/2515245917747646">this study</a>, <a href="https://discovery.ucl.ac.uk/id/eprint/10158608/1/pnas.2203150119.pdf">this study</a>, and <a href="https://insight.kellogg.northwestern.edu/article/researchers-approaches-to-data-analysis">this study</a>.</li>
+</ul>
+</div>
+<div class="g-col-4">
+<p><img src="../../figs/samedatadifferentresult.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="lessons-learned" class="level2">
+<h2 class="anchored" data-anchor-id="lessons-learned">Lessons Learned<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></h2>
+<p>Here are some of the takeaways I had from this paper that I will try to apply in my next course, in no particular order. Many of these are already do to some degree, but it’s good to have a higher degree.</p>
+<ul>
+<li>More surveys! I need to incorporate pre- and post-surveys for more of my assignments and tests to see what my students expect, and where my students are wasting efforts.</li>
+<li>Chunkable projects! The replication had several chunks, all of which can be graded separately. This saves the students from having a major project that goes wrong without them knowing, and helps students keep on track.
+<ul>
+<li>This also allows students to build a tangible portfolio, with each “chunk” being an opportunity to demonstrate mastery and show it. This is something I want to incoporporate, so I’ll keep this sort of project in mind.</li>
+</ul></li>
+<li>Clear end goals! I might even check out the papers they used, but having a goal to produce a specific thing sounds reasonable. This is also amenable to automatic grading for code assignments.</li>
+<li>Creative extensions! I already have included something like this, but having a word for it helps cement it as an option in my mind.</li>
+</ul>
 
 
+</section>
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1745467200000" data-listing-file-modified-sort="1745540554788" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1076">
-<div class="thumbnail">
-<p><a href="./posts/hdsr_repro_assign/index.html" class="no-external"></a></p><a href="./posts/hdsr_repro_assign/index.html" class="no-external">
-<p class="card-img-top"><img src="figs/samedatadifferentresult.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/hdsr_repro_assign/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/hdsr_repro_assign/index.html" class="no-external">Notes on “In-Class Data Analysis Replications”</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/hdsr_repro_assign/index.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/hdsr_repro_assign/index.html" class="no-external">These are some notes and thoughts on the post In-Class Data Analysis Replications: Teaching Students While Testing Science in the Harvard Data Science Review, by&nbsp;Kristina…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/hdsr_repro_assign/index.html" class="no-external">
-<div class="listing-date">
-Apr 24, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="bmFtZXNha2UlMkNuZXdz" data-listing-date-sort="1745208000000" data-listing-file-modified-sort="1745277168726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="444">
-<div class="thumbnail">
-<p><a href="./posts/namesake_announcement/index.html" class="no-external"></a></p><a href="./posts/namesake_announcement/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/namesake_announcement/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/namesake_announcement/index.html" class="no-external">Namesake Analyses</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/namesake_announcement/index.html" class="no-external">Restriction is the mother of creativity</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bmFtZXNha2U='); return false;">
-namesake
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">
-news
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/namesake_announcement/index.html" class="no-external">This is an idea I’ve had going for a while, and this seems like as good a time as any to make it happen.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/namesake_announcement/index.html" class="no-external">
-<div class="listing-date">
-Apr 21, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="ZnVuJTJDYW5hbHlzaXM=" data-listing-date-sort="1744948800000" data-listing-file-modified-sort="1744994165792" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2034">
-<div class="thumbnail">
-<p><a href="./posts/stackoverflow/index.html" class="no-external"></a></p><a href="./posts/stackoverflow/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/stackoverflow/index_files/figure-html/unnamed-chunk-3-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/stackoverflow/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/stackoverflow/index.html" class="no-external">Stackoverflow Analysis</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/stackoverflow/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">
-fun
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/stackoverflow/index.html" class="no-external">This post is the start of an analysis of stackoverflow data that was initially intended for an example assignment in a course. The code was starting to look a little scary…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/stackoverflow/index.html" class="no-external">
-<div class="listing-date">
-Apr 18, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="YW5hbHlzaXMlMkNmdW4=" data-listing-date-sort="1744862400000" data-listing-file-modified-sort="1744992045210" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="598">
-<div class="thumbnail">
-<p><a href="./posts/bakeoff_technical/index.html" class="no-external"></a></p><a href="./posts/bakeoff_technical/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/bakeoff_technical/index_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/bakeoff_technical/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/bakeoff_technical/index.html" class="no-external">Great British Bakeoff: The Technical</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/bakeoff_technical/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">
-analysis
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZnVu'); return false;">
-fun
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/bakeoff_technical/index.html" class="no-external">This is quick exploration of whether doing well in the technical means you’re more likely to be star baker that week.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/bakeoff_technical/index.html" class="no-external">
-<div class="listing-date">
-Apr 17, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="bmV3cw==" data-listing-date-sort="1744689600000" data-listing-file-modified-sort="1744991327762" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
-<div class="thumbnail">
-<p><a href="./posts/welcome/index.html" class="no-external"></a></p><a href="./posts/welcome/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/welcome/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome/index.html" class="no-external">Welcome!</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/welcome/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">
-news
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/welcome/index.html" class="no-external">This is the first post my Quarto blog. Welcome!</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html" class="no-external">
-<div class="listing-date">
-Apr 15, 2025
-</div>
-<div class="listing-author">
-Devan Becker
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>This is not stated by the authors, this is my own extrapolation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>“Lessons Learned” was one of the headings in the survey that the instructors gave to students.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
