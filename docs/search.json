@@ -129,15 +129,15 @@
     "objectID": "posts/hdsr_repro_assign/index.html#lessons-learned",
     "href": "posts/hdsr_repro_assign/index.html#lessons-learned",
     "title": "Notes on “In-Class Data Analysis Replications”",
-    "section": "Lessons Learned2",
-    "text": "Lessons Learned2\nHere are some of the takeaways I had from this paper that I will try to apply in my next course, in no particular order. Many of these are already do to some degree, but it’s good to have a higher degree.\n\nMore surveys! I need to incorporate pre- and post-surveys for more of my assignments and tests to see what my students expect, and where my students are wasting efforts.\nChunkable projects! The replication had several chunks, all of which can be graded separately. This saves the students from having a major project that goes wrong without them knowing, and helps students keep on track.\n\nThis also allows students to build a tangible portfolio, with each “chunk” being an opportunity to demonstrate mastery and show it. This is something I want to incoporporate, so I’ll keep this sort of project in mind.\n\nClear end goals! I might even check out the papers they used, but having a goal to produce a specific thing sounds reasonable. This is also amenable to automatic grading for code assignments.\nCreative extensions! I already have included something like this, but having a word for it helps cement it as an option in my mind."
+    "section": "Lessons Learned1",
+    "text": "Lessons Learned1"
   },
   {
     "objectID": "posts/hdsr_repro_assign/index.html#footnotes",
     "href": "posts/hdsr_repro_assign/index.html#footnotes",
     "title": "Notes on “In-Class Data Analysis Replications”",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis is not stated by the authors, this is my own extrapolation.↩︎\n“Lessons Learned” was one of the headings in the survey that the instructors gave to students.↩︎"
+    "text": "Footnotes\n\n\nNote that “Lessons Learned” was one of the headings in the survey that the instructors gave to students.↩︎"
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -159,5 +159,19 @@
     "title": "Devan Nightly (Definitely)",
     "section": "",
     "text": "Notes on “In-Class Data Analysis Replications”\n\n\n\n\n\n\nnotes\n\n\nsotl\n\n\n\n\n\n\n\n\n\nApr 24, 2025\n\n\nDevan Becker\n\n\n\n\n\n\n\n\n\n\n\n\nNamesake Analyses\n\n\nRestriction is the mother of creativity\n\n\n\nnamesake\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 21, 2025\n\n\nDevan Becker\n\n\n\n\n\n\n\n\n\n\n\n\nStackoverflow Analysis\n\n\n\n\n\n\nfun\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nApr 18, 2025\n\n\nDevan Becker\n\n\n\n\n\n\n\n\n\n\n\n\nGreat British Bakeoff: The Technical\n\n\n\n\n\n\nanalysis\n\n\nfun\n\n\n\n\n\n\n\n\n\nApr 17, 2025\n\n\nDevan Becker\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 15, 2025\n\n\nDevan Becker\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/hdsr_repro_assign/index.html#lessons-learned-1",
+    "href": "posts/hdsr_repro_assign/index.html#lessons-learned-1",
+    "title": "Notes on “In-Class Data Analysis Replications”",
+    "section": "Lessons Learned",
+    "text": "Lessons Learned\n\nStudents don’t actually know what data analysis entails. Maybe a class would benefit from a broadview of the process at the start of the analyses (perhaps guided by ChatGPT).\nA replication analysis is a good way to ensure that students have clear direction in their projects.\nI like the idea of a creative extension! The authors found that the creative extensions were more technically advanced and more meaningful than unconstrained projects, which makes sense and it’s nice to have this as a result.\nStudents found that their tasks were more time-consuming and less challenging than anticipated - ideally, things should be challenging and short, not tedious.\nI wonder how many surveys I can fit in one course without bothering the students too much? Maybe a survey question as part of my participation marks?\nThis wasn’t the best HDSR paper I’ve ever seen. The authors do not demonstrate any knowledge exchange with the greater scientific field, but their main conclusion is that replication in class is good for science."
+  },
+  {
+    "objectID": "posts/hdsr_repro_assign/index.html#thoughts-learned",
+    "href": "posts/hdsr_repro_assign/index.html#thoughts-learned",
+    "title": "Notes on “In-Class Data Analysis Replications”",
+    "section": "Thoughts Learned",
+    "text": "Thoughts Learned\n\nIt would be nice to make my courses more explicitly portfolio-based, and this sort of re-analysis would fit nicely into that.\nMy participation marks should not require students to be in-class, but rather should get students to demonstrate that they have participated. Reading the text and mastering the week’s material counts as participating, as does working in groups, doing peer-to-peer learning, helping develop materials, and giving feedback on the course. They don’t need to be in-class for that, but marks should only be given if they demonstrate that they’ve participated.\nThis piecemeal approach to replication is interesting - replicating a single figure, rather than the overall results.\nReminds of the this study, this study, this study, and this study which had different teams try and answer the same question with the same data.\n\nI made it to page 3 of Google results to get those papers."
   }
 ]
