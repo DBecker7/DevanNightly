@@ -1,2 +1,12 @@
+# Quarto render stuff
 /.quarto/
 /_freeze/
+
+# Python environments
+/dn_env/
+/docs/dn_env/
+
+# SWAMPy stuff
+*/*/simulation_output/*
+*/*/temp/*
+*.db
