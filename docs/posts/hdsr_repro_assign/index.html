@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Devan Becker">
+<meta name="dcterms.date" content="2025-04-24">
 
 <title>Notes on “In-Class Data Analysis Replications” – Devan Nightly</title>
 <style>
@@ -110,7 +111,11 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Notes on “In-Class Data Analysis Replications”</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">notes</div>
+                <div class="quarto-category">sotl</div>
+              </div>
+                  </div>
   </div>
     
   
@@ -123,6 +128,12 @@ ul.task-list li input[type="checkbox"] {
             </div>
     </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 24, 2025</p>
+      </div>
+    </div>
     
       
     </div>
@@ -139,37 +150,49 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>These are some notes and thoughts on the post <a href="https://hdsr.mitpress.mit.edu/pub/4df1pl7f/release/2">In-Class Data Analysis Replications: Teaching Students While Testing Science</a> in the Harvard Data Science Review, by&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/kristina-gligoric">Kristina Gligorić</a>,&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/tiziano-piccardi">Tiziano Piccardi</a>,&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/jake-hofman">Jake M. Hofman</a>, and&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/robert-west">Robert West</a>, published on Jul 31, 2024.</p>
+<p>These are some notes and thoughts on the post <a href="https://hdsr.mitpress.mit.edu/pub/4df1pl7f/release/2">In-Class Data Analysis Replications: Teaching Students While Testing Science</a> in the Harvard Data Science Review, by&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/kristina-gligoric">Kristina Gligorić</a>,&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/tiziano-piccardi">Tiziano Piccardi</a>,&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/jake-hofman">Jake M. Hofman</a>, and&nbsp;<a href="https://hdsr.mitpress.mit.edu/user/robert-west">Robert West</a>, published on July 31, 2024.</p>
 <p>I am interested in this article because I want to incorporate more real-world practice in my teaching, and that does <em>not</em> mean just using interesting data from Kaggle. This article demonstrates a way to incorporate real data while also having the students participate in the broader scientific conversation.</p>
 <p>I will not be covering everything in the article, I’m just noting down some thoughts and some action items for myself and hoping this will be interesting to someone else.</p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>The authors taught a Master’s level course on data science methods at EPFL (École Polytechnique Fédérale de Lausanne). In lieu of a standard project in which students are free to choose their own projects, there was a set of papers to choose from. The students were expected to reproduce two figures from the article they chose: one that the instructors deemed “basic”, and one that the instructors deemed “advanced”. During this process, students answered surveys about their expectations and the realities of their experiences. The students also produced a “creative extension” of the results in the article, in which they were free to analyse the data in a new way.</p>
 </section>
-<section id="lessons-learned" class="level2">
-<h2 class="anchored" data-anchor-id="lessons-learned">Lessons Learned<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></h2>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>One of the interesting results is that the students didn’t actually know what a data analysis entailed. Keeping in mind that these are Master’s students, it is surprising that the students over-estimated the time commitment of data cleaning and under-estimated the time commitment of the actual analysis stage. In my class, I often warn students how long the cleaning takes - maybe I should slow down on that!</p>
+<p>In my opinion, the most important result of the study was that providing a framework in which to do a project with an example that is pertinent to that project allowed the students to better understand the material<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Letting students go free with whatever data they want can lead to rabbit holes that distract from the actual material.</p>
+<p>In the case of this article, the framework they used was replication studies. Instead of giving strict instruction on how to do an analysis, the instructors gave them the goal and let the students find the path. This seems like a great way to structure a project (but it’s not the only way - the end goal doesn’t have to come from published research). Splitting it into a basic and advanced taks helps with stucturing the course since the students can get started without needing to get into complicated methods right away.</p>
+<p>Another really interesting result is that students used more advanced methods in their “creative extension”. This makes sense: the students are stuck in the muck, so they can go even further. The context is laid out for them, they’ve worked with something that someone else thinks is important, and so their minds are primed to keep going. It’s like following someone else’s well-trodden trail, then encouraging them to blaze a little further; the students know which way to go and have the momentum to keep going.</p>
+<p>The authors state that they had two half TA workloads devoted to helping with and grading these projects. For a 300+ person class, this seems like a reasonable workload.</p>
 </section>
-<section id="lessons-learned-1" class="level2">
-<h2 class="anchored" data-anchor-id="lessons-learned-1">Lessons Learned</h2>
+<section id="alternatives" class="level2">
+<h2 class="anchored" data-anchor-id="alternatives">Alternatives</h2>
+<p>The authors state several times that the replications performed in their class have value for the scientific community, but no evidence is provided for this. I don’t doubt that there can be value here, but knowledge isn’t valuable until it’s shared. The replications performed in the classroom are not being shared outside the classroom as far as I can tell. That being said, highlighting failures in replicating a basic figure due to incomplete descriptions is something I will think about when submitting my next paper!</p>
+<p>As I noted above, I love the way that a replication study provides structure for a project. It’s not the only way, but it’s a very elegant way. An alternative way to get this value is to simply let the students reproduce a plot/model made by the instructors (rather than a published article). This gives instructors full control over the context and the level of difficulty, while providing the students a clear goal. The data could also be curated to allow for more creative extensions by including more data or by intentionally only studying a subset of the data in the original analysis.</p>
+<p>This article also reminded me of some replication exercise I saw a while ago. After getting to page 3 of Google search results, I finally found what I was looking for (along with three other similar papers):</p>
+<div class="grid">
+<div class="g-col-8">
 <ul>
-<li>Students don’t actually know what data analysis entails. Maybe a class would benefit from a broadview of the process at the start of the analyses (perhaps guided by ChatGPT).</li>
-<li>A replication analysis is a good way to ensure that students have clear direction in their projects.</li>
-<li>I like the idea of a creative extension! The authors found that the creative extensions were more technically advanced and more meaningful than unconstrained projects, which makes sense and it’s nice to have this as a result.</li>
-<li>Students found that their tasks were more time-consuming and less challenging than anticipated - ideally, things should be challenging and short, not tedious.</li>
-<li>I wonder how many surveys I can fit in one course without bothering the students too much? Maybe a survey question as part of my participation marks?</li>
-<li>This wasn’t the best HDSR paper I’ve ever seen. The authors do not demonstrate any knowledge exchange with the greater scientific field, but their main conclusion is that replication in class is good for science.</li>
+<li><a href="https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-024-02101-x">This study</a> gave a bunch of groups the same data and hypothesis, then asked them to produce a confidence interval. The resultant estimate of each analysis is shown in the image to the right. This demonstrates just how important the “Researcher Degrees of Freedom” or “Garden of Forking Paths” is when doing an analysis.</li>
+<li>Something similar was done in <a href="https://journals.sagepub.com/doi/10.1177/2515245917747646">this study</a>, <a href="https://discovery.ucl.ac.uk/id/eprint/10158608/1/pnas.2203150119.pdf">this study</a>, and <a href="https://insight.kellogg.northwestern.edu/article/researchers-approaches-to-data-analysis">this study</a>.</li>
 </ul>
+</div>
+<div class="g-col-4">
+<p><img src="../../figs/samedatadifferentresult.png" class="img-fluid"></p>
+</div>
+</div>
 </section>
-<section id="thoughts-learned" class="level2">
-<h2 class="anchored" data-anchor-id="thoughts-learned">Thoughts Learned</h2>
+<section id="lessons-learned" class="level2">
+<h2 class="anchored" data-anchor-id="lessons-learned">Lessons Learned<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></h2>
+<p>Here are some of the takeaways I had from this paper that I will try to apply in my next course, in no particular order. Many of these are already do to some degree, but it’s good to have a higher degree.</p>
 <ul>
-<li>It would be nice to make my courses more explicitly portfolio-based, and this sort of re-analysis would fit nicely into that.</li>
-<li>My participation marks should not require students to be in-class, but rather should get students to demonstrate that they have participated. Reading the text and mastering the week’s material counts as participating, as does working in groups, doing peer-to-peer learning, helping develop materials, and giving feedback on the course. They don’t need to be in-class for that, but marks should only be given if they demonstrate that they’ve participated.</li>
-<li>This piecemeal approach to replication is interesting - replicating a single figure, rather than the overall results.</li>
-<li>Reminds of the <a href="https://journals.sagepub.com/doi/10.1177/2515245917747646">this study</a>, <a href="https://bmcbiol.biomedcentral.com/articles/10.1186/s12915-024-02101-x">this study</a>, <a href="https://discovery.ucl.ac.uk/id/eprint/10158608/1/pnas.2203150119.pdf">this study</a>, and <a href="https://insight.kellogg.northwestern.edu/article/researchers-approaches-to-data-analysis">this study</a> which had different teams try and answer the same question with the same data.
+<li>More surveys! I need to incorporate pre- and post-surveys for more of my assignments and tests to see what my students expect, and where my students are wasting efforts.</li>
+<li>Chunkable projects! The replication had several chunks, all of which can be graded separately. This saves the students from having a major project that goes wrong without them knowing, and helps students keep on track.
 <ul>
-<li>I made it to page 3 of Google results to get those papers.</li>
+<li>This also allows students to build a tangible portfolio, with each “chunk” being an opportunity to demonstrate mastery and show it. This is something I want to incoporporate, so I’ll keep this sort of project in mind.</li>
 </ul></li>
+<li>Clear end goals! I might even check out the papers they used, but having a goal to produce a specific thing sounds reasonable. This is also amenable to automatic grading for code assignments.</li>
+<li>Creative extensions! I already have included something like this, but having a word for it helps cement it as an option in my mind.</li>
 </ul>
 
 
@@ -179,7 +202,8 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p>Note that “Lessons Learned” was one of the headings in the survey that the instructors gave to students.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>This is not stated by the authors, this is my own extrapolation.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>“Lessons Learned” was one of the headings in the survey that the instructors gave to students.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
