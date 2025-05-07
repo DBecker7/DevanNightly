@@ -1,0 +1,115 @@
+---
+title: Simulating Wastewater SARS-CoV-2 Reads with SWAMPy
+date: "2025-05-07"
+categories: [code, bioinformatics]
+execute: 
+  cache: true
+---
+
+Flushing a collection of genomic sequences down the toilet with [SWAMPy](https://github.com/goldman-gp-ebi/SWAMPy).
+
+The overall goal of SWAMPy is to simulate wastewater short read data (in fastq format) based on known abundances of genomic sequences. There are a couple important points here:
+
+- Sequences, not lineages. In general, there isn't a "canonical" sequence for a lineage. Lineages are defined according to placement on a phylogenetic tree.
+- There are a lot of assumptions required to simulate these data. The amount of degredation, random sequencing errors, and the viral load are all random phenomena.
+
+## Test Run
+
+The following code and files come from the SWAMPy repo, this is just a verification that I can run it on my machine. In order for the output to appear, I'm running shell commands from within python.
+
+First, let's take a look at the example files provided in the `example` folder of the SWAMPy repo. The `genomes.fasta` file has the full genome sequences in it, so let's just display the lines that start wiht "`>`", i.e. the names of the sequences.
+
+```{python}
+import subprocess
+import os
+
+os.getcwd()
+genome_names = subprocess.run(
+    ["grep", ">", "../../data/genomes.fasta"],
+    capture_output = True, text = True)
+
+print(genome_names.stdout)
+```
+
+In the `abundances.tsv` file, notice that these names match exactly (up to differences in formatting). The "50", "40", and "10" at the end of the line are a different column (because this is a `.tsv` file, columns are separated by tab characters). Note that the code below shows the entire contents of the file; this is all that is needed.
+
+```{python}
+with open("../../data/abundances.tsv") as f:
+    for line in f:
+      print(line.strip())
+
+```
+
+## Running SWAMPy
+
+The following code will actually run the SWAMPy simulation routine. In the code below, there are many options set. Most of them are self-explanatory, but I'll go into some detail for my own sake.
+
+- A primer set is what is used to grab the sequences in the wastewater. The the ARTIC protocol, these are about 400 base pair portions of the genome, where the ends of the primers grab the sequence and then the middles are read by the sequencer. 
+    - The ARTIC protocol has several [primer schemes](https://github.com/artic-network/primer-schemes). The `--primer_set` cli argument to swampy allows the user to decide on the primer set, with options defined in the [swapy wiki](https://github.com/goldman-gp-ebi/SWAMPy/wiki/CLI-arguments).
+    - The primer set probably won't affect the results too much as long as the correct primer set is provided when processing the simulated reads.
+- The `--n_reads` parameter works as it should, but it's not necessarily intuitive.
+    - One person can poop hundreds or thousands of whole or partial genomes.
+    - These genomes degrade in the wastewater, so not all portions can be read.
+    - Each of those genomes could have up to 196 reads^[There are 98 primers in the ARTIC protocol, and each read can be read forward and backwards.] in the ARTIC protocol.
+    - Some primers will fail to be read (amplicon dropout).
+    - Because of this, the number of reads is a target number, and the actual simulation may result in a slightly different number.
+
+```{python}
+import subprocess
+
+swampy_executable = os.path.expanduser("~/git/DASL/external/SWAMPy/src/simulate_metagenome.py")
+
+output = subprocess.run(
+    [
+        "python", swampy_executable,
+        "--primer_set", "a1",
+        "--genomes_file", "../../data/genomes.fasta",
+        "--genome_abundances", "../../data/abundances.tsv",
+        "--n_reads", "1000",
+        "--output_folder", "simulation_output",
+        "--temp_folder", "temp",
+        "--autoremove",
+        "--quiet"
+    ]
+)
+print(output.stderr)
+```
+
+## The Simulation Model
+
+The default model for the number of observations of each amplicon is labelled `DIRICHLET_1`. Based on digging through the code, it works as follows:
+
+1. Choose the number of each supplied sequence to use (multinomial).
+    - Given the total reads (`--n_reads`) and the abundances, it generates the number of each supplied genome according to a multinomial distribution.
+2. Choose the probability of each amplicon (dirichlet * psuedocounts).
+    - The probability of choosing each amplicon is defined by a Dirichlet distribution. This uses a set of hyperparameters to define the $\underline\alpha$ parameter, then samples a new set of probabilities. 
+    - Depending on the primer set, different hyperparameters are assumed. For built-in primer sets, there are files defining these hyperparameters. 
+    - The pseudocount essentially controls the variance of the dirichlet distribution. A higher pseudocount makes the simulated probabilities closer to the hyperparameters.
+3. Sample the amplicons from each genome sequence (multinomial for each genome, based on output of dirichlet)
+    - The code essentially goes through a for loop (dictionary comprehension), and for each supplied genome it samples amplicons.
+
+The model labelled `DIRICHLET_2` appears to be the same as `DIRICHLET_1` but does not use pseudocounts. The `EXACT` model just uses the abundances provided.
+
+This process would result in a collection of amplicons that all look exactly the same. This is not realistic - high-throughput sequence tends to produce many errors, but makes up for it by getting a lot of reads. 
+
+To get these errors, there are several parameters that define genome-wide error rates for insertions, deletions, and substitutions, as well as dirichlet hyper-parameters to ensure that the probabilies provided also have some variance. Alternative alleles are generated for each amplicon, then the number of each alternative allele is chosen based on a multinomial distribution (which, in this case, is a binomial since there's only the mutation and the original). See the [CLI arguments wiki](https://github.com/goldman-gp-ebi/SWAMPy/wiki/CLI-arguments) and the [methods](https://github.com/goldman-gp-ebi/SWAMPy/wiki/SWAMPy-method#4-high-frequency-error-introduction).
+
+## Conclusion
+
+A great deal of work has gone into ensureing that short are simulated in a reasonable manner and then correctly placed in a fastq file. I commend the authors on this codebase!
+
+The simulation process appears to be reasonable, but choice of the relevant parameters might be tricky. Choice of the parameters will greatly affect the variance of the output, which is the main goal of my research. I plan to use the default values for now, but I will be careful to speak in relative terms. I'm certainly not getting the absolute variance of the estimators - there will always be aleatoric uncertainty, despite our best efforts. However, if I simulate a lot of data sets and get an estimator that tends to have a lower variance, I can be confident that it is lower (but I can't say that the estimated value is the true value).
+
+
+
+
+## Other Lessons
+
+While making this post, I had so many "opportunities for learning" (i.e., frustrations).
+
+1. To set up a python environment that Quarto will see, I need to use `conda create --prefix ./dn_env python=3.10` to ensure that it's in the current directory.
+    - I need to force VSCode to activate it by selecting the interpreter.
+    - After creating the env, I need to activate it and run `conda install nbconvert jupyter jupyter-cache biopython pandas`
+    - I **do not** need to activate the environment from within the quarto document.
+2. `subprocess.run()` needs a list, with each argument being a different element (no spaces).
+
