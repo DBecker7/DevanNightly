@@ -1,0 +1,119 @@
+---
+title: "Reversible Jump"
+subtitle: "Spring forward, fall back"
+date: "2025-05-19"
+categories: ["R", "NIMBLE", "Bayesian"]
+---
+
+Basic ideas of RJMCMC with some code examples.
+
+# Big Ideas Up Front
+
+- In Metropolis-Hastings, we have a proposal distribution to generate new values, and a candidate transition density that determines how likey we are to accept a proposed value. In the transition density, there is a condition on the transition density that ensure that the draws will be from the desired posterior asymptotically.
+- Reversible jump is a generalization of Metropolis-Hastings that generalizes the condition on the transition density. Essentially, the set-up of the probability of accepting a new value allows for the densities to have different numbers of parameters.
+- It's called "reversible jump" because the transition density is set up to ensure that the probability of going forward is the same as the probability of going backward, regardless of the dimension of the parameter space for each density.
+- One of the most common applications of RJMCMC is for variable selection, where some coefficients can sometimes be set to zero (which results in a model with a different number of parameters).
+    - It is possible to use indicator functions to set coefficients to zero (and this is how I've done it before), but the MCMC still samples values for the slopes. In order for the indicator function to go from a 0 to a 1, the slope must have a reasonable value (which it won't as it wanders through the parameter space). 
+
+
+# Example
+
+The following sets up the indicator approach, and demonstrates how the parameters for unnecessary coefficients can wander when the indicato function is set to 0.
+
+```{r}
+library(nimble)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+
+X <- matrix(rnorm(1000), ncol = 10)
+beta <- c(1, 2, 3, 4, 5, 0, 0, 0, 0, 0)
+y <-  rnorm(100, mean = X %*% beta, sd = 2)
+
+# Taken directly from NIMBLE manual
+lmIndicatorCode <- nimbleCode({
+    sigma ~ dunif(0, 20)  ## uniform prior per Gelman (2006)
+    psi ~ dunif(0,1)    ## prior on inclusion probability
+
+    for(i in 1:numVars) {
+        z[i] ~ dbern(psi) ## indicator variable for each coefficient
+        beta[i] ~ dnorm(0, sd = 100)
+        zbeta[i] <- z[i] * beta[i]  ## indicator * beta
+    }
+    for(i in 1:N) {
+        pred.y[i] <- inprod(X[i, 1:numVars], zbeta[1:numVars])
+        y[i] ~ dnorm(pred.y[i], sd = sigma)
+    }
+})
+lmIndicatorConstants <- list(N = length(y), numVars = ncol(X))
+lmIndicatorInits <- list(
+    sigma = 1, 
+    psi = 0.5,
+    beta = rnorm(lmIndicatorConstants$numVars),
+    z = sample(0:1, lmIndicatorConstants$numVars, 0.5)
+)
+
+lmIndicatorData  <- list(y = y, X = X)
+lmIndicatorModel <- nimbleModel(
+    code = lmIndicatorCode,
+    constants = lmIndicatorConstants,
+    inits = lmIndicatorInits,
+    data = lmIndicatorData
+)
+
+## Run the model
+set.seed(1234)
+lmIndicatorSamples <- nimbleMCMC(
+    lmIndicatorModel,
+    monitors = c("beta", "sigma", "psi", "z"),
+    niter = 10000,
+    thin = 10
+)
+
+lmIndicatorSamples |>
+    as.data.frame() |>
+    mutate(index = 1:n()) |>
+    select(-psi, -sigma) |>
+    pivot_longer(-index,
+        names_to = "parameter", values_to = "value"
+    ) |>
+    separate_wider_regex(
+        col = parameter,
+        pattern = c("beta\\[", parameter = "\\d+", "\\]")
+    ) |>
+    ggplot(aes(x = index, y = value)) +
+    geom_line() +
+    facet_wrap(~ parameter, scales = "free_y")
+```
+
+Now, let's see what happens when we use reversible jump.
+
+```{r}
+lmIndicatorConf <- configureMCMC(lmIndicatorModel)
+lmIndicatorConf$addMonitors('z')
+mcmcIndicatorRJ <- buildMCMC(lmIndicatorConf)
+cIndicatorModel <- compileNimble(lmIndicatorModel)
+CMCMCIndicatorRJ <- compileNimble(mcmcIndicatorRJ, project = lmIndicatorModel)
+set.seed(1)
+system.time(samplesIndicator <- runMCMC(CMCMCIndicatorRJ, niter = 10000, nburnin = 1000))
+
+samplesIndicator |>
+    as.data.frame() |>
+    mutate(index = 1:n()) |>
+    select(starts_with("z"), starts_with("beta"), index) |>
+    pivot_longer(-index,
+        names_to = "parameter", values_to = "value"
+    ) |>
+    separate_wider_regex(
+        col = parameter,
+        pattern = c(
+            parameter = "\\w+", "\\[",
+            numvar = "\\d+", "\\]")
+    ) |>
+    pivot_wider(names_from = parameter, values_from = value) |>
+    ggplot() + 
+    aes(x = index, y = beta, color = factor(z)) +
+    geom_line() +
+    facet_wrap(~ numvar, scales = "free_y")
+```
+
